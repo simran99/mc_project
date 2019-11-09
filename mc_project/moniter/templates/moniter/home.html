@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blind Home</title>
+</head>
+<body>
+	<p>Home</p>
+	<a href="{% url 'logout' %}">logout</a>
+</body>
+<script type="text/javascript">
+	function poll(){
+		$.ajax({
+			type:"get",
+			url:"",
+			success:function()
+			{
+				setTimeout(function(){
+					poll();
+				},5000);
+			}
+		});
+	}
+	poll();
+</script>
+</html>
