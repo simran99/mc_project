@@ -5,15 +5,13 @@
 	<title>Blind Home</title>
 </head>
 <body>
-	<h1>Admin Home</h1>
-	<table>
-	{% for patient in patients %}
-		<tr>
-			<td colspan="" rowspan="" headers="">{{patient.name}}</td>
-			<td colspan="" rowspan="" headers="">{{patient.age}}</td>
-		</tr>
-	{% endfor %}
-	</table>
+	<h1>Admin Add Patient</h1>
+	<form action="/addpatient" method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{ patientform.as_p }}
+          <input type="submit" value="Submit">
+        </form>
+	
 	<a href="{% url 'logout' %}">logout</a>
 </body>
 <script type="text/javascript">

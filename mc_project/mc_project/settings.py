@@ -25,13 +25,15 @@ SECRET_KEY = 'xkfu-5zs9)!84xdtguimfk89l%j29g3wzae8-x)&^#hucdm)^u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.49','0.0.0.0','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'moniter.apps.MoniterConfig',
+    'user',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'mc_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'blindHome.sqlite3'),
     }
 }
 
