@@ -3,11 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<p><a href="{% url 'admin:login' %}">Add patients</a>
+	<p><a href="/addpatient">Add patients</a>
 	</p>
 
-	<p><a href="/accounts/login">Moniter </a></p>
+	<p><a href="/home">Moniter </a></p>
+	<div id='emergencybox'>
+		
+	</div>
 </body>
+<script type="text/javascript">
+	window.setInterval(function(){
+		$.ajax({
+		    url: '/checkemergency',
+		    dataType: 'json',
+		    success: function (data) {
+		    	document.getElementById("emergencybox").innerText =''
+		    	data.emergencies.map((e)=>{
+		    		document.getElementById("emergencybox").innerText += e.pid+'\n';
+		    	})
+		    	
+		    	// console.log(data.emergencies)
+			     console.log("Success")
+			   }
+		 });
+	}, 5000);
+</script>
 </html>
